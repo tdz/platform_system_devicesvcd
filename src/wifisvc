@@ -1,0 +1,3 @@
+#!/sbin/sh
+
+cd /data/wifisvc.js && /system/bin/node /data/wifisvc.js/wifisvc.js
