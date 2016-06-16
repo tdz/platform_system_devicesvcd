@@ -1,0 +1,3 @@
+#!/sbin/sh
+
+cd /data/devicesvcd-data && /system/bin/node /data/devicesvcd-data/devicesvcd.js

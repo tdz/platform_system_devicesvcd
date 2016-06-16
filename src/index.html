@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Wifi Configuration
+    </title>
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="WifiManager-client.js"></script>
+    <script type="text/javascript">
+      var wifiManager = new WifiManager(io);
+
+      function doConnect() {
+        var name = document.getElementById('name').value;
+        var key = document.getElementById('key').value;
+        wifiManager.associate({bssid: name, psk: key},
+          function() {
+            console.log("associate success");
+          },
+          function(err) {
+            console.log("associate error: " + err);
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>
+      Wifi Configuration
+    </h1>
+    <form>
+      <label for="name">Network name:<input id="name" name="name"></label><br>
+      <label for="key">Key:<input id="key" name="key"></label>
+      <input type="button" value="Connect to network" onclick="doConnect();" />
+    </form>
+  </body>
+</html>
